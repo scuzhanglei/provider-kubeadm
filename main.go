@@ -187,6 +187,12 @@ func getInitYipStages(cluster clusterplugin.Cluster, initCfg kubeadmapiv3.InitCo
 				fmt.Sprintf("bash %s %s", filepath.Join(helperScriptPath, "kube-upgrade.sh"), cluster.Role),
 			},
 		},
+		{
+			Name: "Run Kubectl Apply To Install Manifests",
+			Commands: []string{
+				fmt.Sprintf("bash %s", filepath.Join(helperScriptPath, "kube-apply.sh")),
+			},
+		},
 	}
 }
 
